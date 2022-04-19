@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:task_app/cadastro_screen.dart';
 
+import 'task.dart';
+
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
 
@@ -19,10 +21,14 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Container(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
+        onPressed: () async{
+          Task task = await Navigator.push(context, MaterialPageRoute(builder: (context) => CadastroScreen()));
           //Navigator.push(context,
           //   MaterialPageRoute(builder: (context) => CadastroScreen()));
-          Navigator.pushNamed(context, "/cadastro");
+          //Navigator.pushNamed(context, "/cadastro");
+          if (task != null) {
+            //Adiciona task a lista 
+          }
         },
         child: const Icon(Icons.add),
         backgroundColor: Colors.purple,

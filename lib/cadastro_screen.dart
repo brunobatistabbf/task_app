@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:task_app/task.dart';
 
 class CadastroScreen extends StatefulWidget {
   CadastroScreen({Key? key}) : super(key: key);
@@ -10,6 +11,7 @@ class CadastroScreen extends StatefulWidget {
 
 class _CadastroScreenState extends State<CadastroScreen> {
   final _formalKey = GlobalKey<FormState>();
+  TextEditingController _textoController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +60,11 @@ class _CadastroScreenState extends State<CadastroScreen> {
                     height: 55,
                     child: ElevatedButton(
                       onPressed: () {
-                        _formalKey.currentState?.validate();
+                        if (_formalKey.currentState!.validate()) {
+                          String texto = _textoController.text.toString();
+                          Task newTask = Task(texto);
+                          Navigator.pop(context, newTask);
+                        }
                       },
                       child: const Text(
                         "Cadastrar",
