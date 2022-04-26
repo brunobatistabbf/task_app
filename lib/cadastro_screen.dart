@@ -28,6 +28,7 @@ class _CadastroScreenState extends State<CadastroScreen> {
               Container(
                   padding: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
                   child: TextFormField(
+                    controller: _textoController,
                     validator: (value) {
                       if (value.toString().isEmpty) {
                         return "Preenchimento obrigatório";

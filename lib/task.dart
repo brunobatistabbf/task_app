@@ -3,4 +3,8 @@ class Task {
   bool done = false;
 
   Task(this.texto);
+
+  void changeState() {
+    this.done = !done;
+  }
 }
